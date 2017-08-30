@@ -1,7 +1,7 @@
 # jsPong
 
 <p align="center">
-The classic game Pong in the programming language we all love: <b>JavaScript.</b> ♥
+The classic game <b>Pong</b> in the programming language we all love: <b>JavaScript.</b> ♥
 </p>
 <p align="center">
 <!-- <img> -->
