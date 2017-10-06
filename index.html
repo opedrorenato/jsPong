@@ -1,16 +1,77 @@
-<hmtl>
+<!DOCTYPE html>
+<hmtl lang="pt-br">
+  <head>
+  	<title>jsPong ♥</title>
 
-<head>
-	<title>
-		jsPong ♥
-	</title>
-</head>
+    <!-- CSS -->
+    <style type="text/css">
+      canvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -300px;
+        margin-left: -300px;
+        border: 1px solid black;
+        background-color: black;
+      }
+    </style>
+  </head>
 
-<body>
-	<h1>jsPong</h1>
-  <div>
-  	
-  </div>
-</body>
+  <body>
+    <h1>jsPong ♥</h1>
+    <canvas height="600" width="600" id="canvas"></canvas>
+    <script type="text/javascript">
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
 
+      var controls = {
+
+      };
+
+      var leftPaddle = {
+        width: 30,
+        height: 120,
+
+        x: 10,
+        y: canvas.height / 2 - 60,
+
+        score: 0,
+        speed: 15
+      };
+
+      var rightPaddle = {
+        width: 30,
+        height: 120,
+
+        x: 560,
+        y: canvas.height / 2 - 60,
+
+        score: 0,
+        speed: 15
+      };
+
+      var ball = {
+        width: 30,
+        height: 30,
+
+        x: canvas.width / 2 - 15,
+        y: canvas.height / 2 - 15,
+
+        dx: -1,
+        dy: 1,
+
+        aceleration: 0,
+        speed: 50
+      };
+
+      function draw() {
+        context.fillStyle = "white";
+        context.fillRect(leftPaddle.x, leftPaddle.y, leftPaddle.width, leftPaddle.height);
+        context.fillRect(rightPaddle.x, rightPaddle.y, rightPaddle.width, rightPaddle.height);
+        context.fillRect(ball.x, ball.y, ball.width, ball.height);
+      }
+
+      draw();
+    </script>
+  </body>
 </hmtl>
