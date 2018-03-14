@@ -5,6 +5,7 @@
 
     <!-- CSS -->
     <style type="text/css">
+      /* Background */
       canvas {
         position: absolute;
         top: 50%;
@@ -19,47 +20,44 @@
 
   <body>
     <h1>jsPong ♥</h1>
-    <canvas height="600" width="600" id="canvas"></canvas>
+
+    <!-- Background -->
+    <canvas width="600" height="600" id="canvas"></canvas>
+
+    <!-- Pre-Jogo -->
     <script type="text/javascript">
       var canvas = document.getElementById("canvas");
       var context = canvas.getContext("2d");
-
       var controls = {
-
       };
 
       var leftPaddle = {
         width: 30,
         height: 120,
-
         x: 10,
         y: canvas.height / 2 - 60,
-
+        speed: 15,
         score: 0,
-        speed: 15
+        dy: 1
       };
 
       var rightPaddle = {
         width: 30,
         height: 120,
-
         x: 560,
         y: canvas.height / 2 - 60,
-
+        speed: 15,
         score: 0,
-        speed: 15
+        dy: 1
       };
 
       var ball = {
         width: 30,
         height: 30,
-
         x: canvas.width / 2 - 15,
         y: canvas.height / 2 - 15,
-
         dx: -1,
         dy: 1,
-
         aceleration: 0,
         speed: 50
       };
@@ -72,6 +70,23 @@
       }
 
       draw();
+
+      window.addEventListener("keydown", function (event) {
+        if (event.defaultPrevented) {
+          return;
+        }
+
+        switch (event.key) {
+          case "ArrowDown":
+            leftPaddle.y = leftPaddle.y - leftPaddle.speed
+            break;
+          case "ArrowUp":
+            leftPaddle.y = leftPaddle.y + leftPaddle.speed
+            break;
+        }
+
+        event.preventDefault();
+      }, true);
     </script>
   </body>
 </hmtl>
